@@ -1,0 +1,155 @@
+@use '../../styles.scss' as *;
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espaço entre as abas e o conteúdo */
+  
+    .tab-button {
+      background-color: $color-background;
+      border: 1px solid $color-primary;
+      color: $color-primary;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: $border-radius-default;
+      margin: 0 10px; /* Espaço entre os botões */
+      transition: background-color 0.3s ease, color 0.3s ease;
+  
+      &.active {
+        background-color: $color-primary;
+        color: $color-background;
+        font-weight: bold;
+      }
+  
+      &:hover {
+        background-color: lighten($color-primary, 10%);
+        color: $color-background;
+      }
+    }
+  }
+  
+  // Estilo geral do conteúdo
+  .container {
+    @include center-flex;
+    background-color: $color-background;
+    padding: 20px;
+    font-family: $font-family-default;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  // Estilo do cabeçalho (h1)
+  h1 {
+    color: $color-primary;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  // Estilo dos filtros
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  
+    input {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid $color-primary;
+      border-radius: $border-radius-default;
+      background-color: $color-background;
+      color: $color-primary;
+      font-size: $font-size-default;
+      transition: border-color 0.3s ease;
+  
+      &:focus {
+        border-color: $color-accent;
+        outline: none;
+      }
+    }
+  
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+  
+      button {
+        @include button-style($color-accent);
+        padding: 10px 20px;
+        border-radius: $border-radius-default;
+  
+        &.clear {
+          background-color: $color-secondary;
+          color: $color-background;
+  
+          &:hover {
+            background-color: darken($color-secondary, 10%);
+          }
+        }
+      }
+    }
+  }
+  
+  // Estilo da tabela
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: $color-secondary;
+      border-radius: $border-radius-default;
+      overflow: hidden;
+      box-shadow: $box-shadow-default;
+  
+      thead {
+        background-color: $color-accent;
+        color: $color-background;
+  
+        th {
+          padding: 12px;
+          text-align: left;
+          font-size: $font-size-default;
+        }
+      }
+  
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background-color: lighten($color-secondary, 5%);
+          }
+  
+          &:hover {
+            background-color: lighten($color-secondary, 10%);
+          }
+  
+          td {
+            padding: 12px;
+            text-align: left;
+            font-size: $font-size-default;
+            color: $color-primary;
+            border-bottom: 1px solid $color-primary;
+          }
+        }
+      }
+    }
+  }
+  
+  // Caso não haja dados
+  .no-data {
+    color: $color-primary;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  
+  // Mensagem de erro
+  .error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  

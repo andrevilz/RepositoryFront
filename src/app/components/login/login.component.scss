@@ -1,0 +1,103 @@
+// Importa o arquivo de estilos compartilhados
+@use '../../../styles' as *;
+
+// Container da tela de login
+.container {
+  @include center-flex;  // Centraliza o conteúdo
+  background-color: $color-background;
+  height: 100vh; // Full height
+  padding: 20px;
+  font-family: $font-family-default;
+}
+
+// Formulário de login
+.form {
+  background-color: $color-secondary;
+  border-radius: $border-radius-default;
+  box-shadow: $box-shadow-default;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  // Títulos
+  h1 {
+    color: $color-primary;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .tab-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: $border-radius-default;
+      transition: all 0.3s;
+      font-weight: bold;
+      color: $color-primary;
+
+      &:hover {
+        background-color: $color-accent;
+        color: white;
+      }
+
+      &.active {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
+  }
+
+  // Campos de entrada (inputs)
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid $color-primary;
+    border-radius: $border-radius-default;
+    font-size: $font-size-default;
+    color: $color-primary;
+    background-color: $color-background;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $color-accent;
+      outline: none;
+    }
+  }
+
+  // Botão de login
+  button {
+    @include button-style($color-accent);
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  // Aviso de erro
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+}
+
+// Estilo para as abas de "Login" e "Cadastro"
+.tab-content {
+  width: 100%;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+

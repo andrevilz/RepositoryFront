@@ -1,0 +1,40 @@
+// Ao invés de @import, use @use
+@use 'sass:color';
+
+// Paleta de cores
+$color-primary: #78B3CE;
+$color-secondary: #C9E6F0;
+$color-background: #FFFFFF;
+$color-accent: #F96E2A;
+
+// Ajuste da cor
+$color-darkened: color.adjust($color-primary, $lightness: -10%);
+
+// Outras variáveis e mixins
+$border-radius-default: 10px;
+$font-family-default: 'Arial', sans-serif;
+$box-shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+$font-size-default: 16px;
+
+// Mixins
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-style($bg-color, $color: #fff) {
+  background-color: $bg-color;
+  color: $color;
+  border: none;
+  padding: 10px 20px;
+  border-radius: $border-radius-default;
+  cursor: pointer;
+  font-size: $font-size-default;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+  }
+}

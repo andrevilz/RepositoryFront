@@ -1,0 +1,9 @@
+<button class="logout-button" (click)="logout()">Logout</button>
+<div *ngIf="isSupervisor(); else managerContent">
+<app-supervisor></app-supervisor>
+  </div>
+  
+  <ng-template #managerContent>
+<app-manager></app-manager>
+  </ng-template>
+  

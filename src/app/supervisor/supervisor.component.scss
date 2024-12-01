@@ -1,0 +1,72 @@
+@use '../../styles.scss' as *;
+
+// Container principal
+.container {
+  @include center-flex;
+  background-color: $color-background;
+  padding: 20px;
+  height: 100vh; // Tela cheia
+  font-family: $font-family-default;
+  text-align: center;
+
+  .header {
+    h1 {
+      color: $color-primary;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+  }
+
+  // Formulário
+  form {
+    background-color: $color-secondary;
+    padding: 40px;
+    border-radius: $border-radius-default;
+    box-shadow: $box-shadow-default;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    // Campos de entrada (inputs)
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $color-primary;
+      border-radius: $border-radius-default;
+      font-size: $font-size-default;
+      color: $color-primary;
+      background-color: $color-background;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: $color-accent;
+        outline: none;
+      }
+
+      &:disabled {
+        background-color: lighten($color-background, 5%);
+        color: darken($color-primary, 20%);
+        cursor: not-allowed;
+      }
+    }
+
+    // Botão de envio
+    button {
+      @include button-style($color-accent);
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      font-size: $font-size-default;
+    }
+  }
+
+  // Mensagem de erro
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+}

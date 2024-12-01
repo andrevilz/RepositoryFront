@@ -1,0 +1,97 @@
+<div class="container">
+    <!-- Navegação das abas no topo -->
+    <div class="tabs">
+      <button class="tab-button" [class.active]="selectedTab === 'inspecionar'" (click)="selectTab('inspecionar')">Inspecionar</button>
+      <button class="tab-button" [class.active]="selectedTab === 'dashboard'" (click)="selectTab('dashboard')">Dashboard</button>
+    </div>
+  
+    <!-- Conteúdo da aba Inspecionar -->
+    <div *ngIf="selectedTab === 'inspecionar'">
+      <h1>Gerenciamento de Relatórios</h1>
+  
+      <!-- Filtros -->
+      <div class="filters">
+        <input
+          type="text"
+          placeholder="Nome do Usuário"
+          [(ngModel)]="filters.userName"
+          name="userName"
+        />
+        <input 
+          type="date" 
+          [(ngModel)]="filters.startDate" 
+          name="startDate" 
+        />
+        <input 
+          type="date" 
+          [(ngModel)]="filters.endDate" 
+          name="endDate" 
+        />
+        <div class="filter-buttons">
+          <button (click)="filterReports()">Filtrar</button>
+          <button class="clear" (click)="getAllReports()">Limpar Filtros</button>
+        </div>
+      </div>
+  
+      <!-- Tabela -->
+      <div class="table-container" *ngIf="reports.length > 0; else noData">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome do Usuário</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th>Hora</th>
+              <th>Código Fiscal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let report of reports">
+              <td>{{ report.name }}</td>
+              <td>{{ report.value | currency: 'BRL' }}</td>
+              <td>{{ report.date }}</td>
+              <td>{{ report.hora }}</td>
+              <td>{{ report.codigoFiscal }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Caso não haja dados -->
+      <ng-template #noData>
+        <p class="no-data">Nenhum relatório encontrado.</p>
+      </ng-template>
+  
+      <!-- Mensagem de erro -->
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </div>
+  
+    <!-- Conteúdo da aba Dashboard (vazia por enquanto) -->
+    <div *ngIf="selectedTab === 'dashboard'">
+        <h1>Dashboard</h1>
+      
+        <!-- Filtros -->
+        <div class="filters">
+          <select [(ngModel)]="filtersGraph.userName" (change)="filterReportsGraph()" name="userName">
+            <option value="">Todos</option>
+            <option *ngFor="let user of users" [value]="user.name">{{ user.name }}</option>
+          </select>
+      
+          <select [(ngModel)]="filtersGraph.month" (change)="filterReportsGraph()" name="month">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+      
+        <!-- Gráficos -->
+        <div class="chart-container">
+          <apx-chart
+          *ngIf="chartOptions"
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [yaxis]="chartOptions.yaxis">
+        </apx-chart>
+        </div>
+      </div>
+  </div>
+  
