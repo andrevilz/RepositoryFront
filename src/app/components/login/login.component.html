@@ -13,7 +13,6 @@
           (click)="currentTab = 'register'">Cadastro</div>
       </div>
   
-      <!-- Formulário Login -->
       <div class="tab-content" [ngClass]="{ 'active': currentTab === 'login' }">
         <form (ngSubmit)="onLogin()">
           <input type="text" placeholder="Nome" [(ngModel)]="loginData.name" name="name" required>
@@ -23,7 +22,6 @@
         <div class="error-message" *ngIf="loginError">{{ loginError }}</div>
       </div>
   
-      <!-- Formulário Cadastro -->
       <div class="tab-content" [ngClass]="{ 'active': currentTab === 'register' }">
         <form (ngSubmit)="onRegister()">
           <input type="text" placeholder="Nome" [(ngModel)]="registerData.name" name="name" required>

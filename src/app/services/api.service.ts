@@ -6,14 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:3000'; // Altere se necessário
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}
 
-  // Exemplo: Login
   login(credentials: { name: string; password: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/user/login`, credentials);
   }
 
-  // Outros métodos podem ser adicionados aqui
 }

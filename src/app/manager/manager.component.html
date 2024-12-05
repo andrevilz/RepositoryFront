@@ -1,15 +1,12 @@
 <div class="container">
-    <!-- Navegação das abas no topo -->
     <div class="tabs">
       <button class="tab-button" [class.active]="selectedTab === 'inspecionar'" (click)="selectTab('inspecionar')">Inspecionar</button>
       <button class="tab-button" [class.active]="selectedTab === 'dashboard'" (click)="selectTab('dashboard')">Dashboard</button>
     </div>
   
-    <!-- Conteúdo da aba Inspecionar -->
     <div *ngIf="selectedTab === 'inspecionar'">
       <h1>Gerenciamento de Relatórios</h1>
   
-      <!-- Filtros -->
       <div class="filters">
         <input
           type="text"
@@ -33,7 +30,6 @@
         </div>
       </div>
   
-      <!-- Tabela -->
       <div class="table-container" *ngIf="reports.length > 0; else noData">
         <table>
           <thead>
@@ -57,20 +53,16 @@
         </table>
       </div>
   
-      <!-- Caso não haja dados -->
       <ng-template #noData>
         <p class="no-data">Nenhum relatório encontrado.</p>
       </ng-template>
   
-      <!-- Mensagem de erro -->
       <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
     </div>
   
-    <!-- Conteúdo da aba Dashboard (vazia por enquanto) -->
     <div *ngIf="selectedTab === 'dashboard'">
         <h1>Dashboard</h1>
       
-        <!-- Filtros -->
         <div class="filters">
           <select [(ngModel)]="filtersGraph.userName" (change)="filterReportsGraph()" name="userName">
             <option value="">Todos</option>
@@ -82,7 +74,6 @@
           </select>
         </div>
       
-        <!-- Gráficos -->
         <div class="chart-container">
           <apx-chart
           *ngIf="chartOptions"

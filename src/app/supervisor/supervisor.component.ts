@@ -16,12 +16,11 @@ export class SupervisorComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('iniciado')
-    // Tentar obter o nome do usuário armazenado no localStorage
+    // console.log('iniciado')
     const user = localStorage.getItem('user');
     if (user) {
-      const parsedUser = JSON.parse(user); // Parse do user armazenado
-      this.reportData.name = parsedUser.name; // Definindo o nome do relatório como o nome do usuário
+      const parsedUser = JSON.parse(user);
+      this.reportData.name = parsedUser.name; 
 
     }
   }
@@ -30,18 +29,17 @@ export class SupervisorComponent implements OnInit {
     this.dataService.addReport(this.reportData)
       .subscribe(
         (response) => {
-          alert('Cadastro de relatório realizado com sucesso!'); // Exibe o alerta
-          console.log('Relatório adicionado com sucesso', response);
+          alert('Cadastro de relatório realizado com sucesso!'); 
+          // console.log('Relatório adicionado com sucesso', response);
           const user = localStorage.getItem('user');
           if (user) {
-            const parsedUser = JSON.parse(user); // Parse do user armazenado
-            this.reportData.name = parsedUser.name; // Definindo o nome do relatório como o nome do usuário
-                // Limpa os campos após o cadastro
+            const parsedUser = JSON.parse(user); 
+            this.reportData.name = parsedUser.name; 
                 this.reportData = {
                   name: parsedUser.name,
                   value: '',
                   codigoFiscal: ''
-                }; // Definindo os campos para valores vazios
+                }; 
           }
 
         },

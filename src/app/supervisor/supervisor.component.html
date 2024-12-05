@@ -3,7 +3,6 @@
       <h1>Adicionar Relatório</h1>
     </div>
     <form (ngSubmit)="onAddReport()">
-      <!-- Campo para o nome do relatório (desativado, apenas exibição) -->
       <input
         type="text"
         placeholder="Nome do Relatório"
@@ -13,7 +12,6 @@
         disabled
       />
   
-      <!-- Campo para o valor do relatório -->
       <input
         type="number"
         placeholder="Valor"
@@ -22,7 +20,6 @@
         required
       />
   
-      <!-- Campo para o código fiscal -->
       <input
         type="text"
         placeholder="Código Fiscal"
@@ -31,11 +28,9 @@
         required
       />
   
-      <!-- Botão para adicionar o relatório -->
       <button type="submit">Adicionar</button>
     </form>
   
-    <!-- Exibição de erro, se houver -->
     <div class="error-message" *ngIf="addReportError">
       {{ addReportError }}
     </div>

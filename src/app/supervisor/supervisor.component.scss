@@ -1,11 +1,10 @@
 @use '../../styles.scss' as *;
 
-// Container principal
 .container {
   @include center-flex;
   background-color: $color-background;
   padding: 20px;
-  height: 100vh; // Tela cheia
+  height: 100vh; 
   font-family: $font-family-default;
   text-align: center;
 
@@ -18,7 +17,6 @@
     }
   }
 
-  // Formulário
   form {
     background-color: $color-secondary;
     padding: 40px;
@@ -30,7 +28,6 @@
     flex-direction: column;
     gap: 20px;
 
-    // Campos de entrada (inputs)
     input {
       width: 100%;
       padding: 12px;
@@ -53,7 +50,6 @@
       }
     }
 
-    // Botão de envio
     button {
       @include button-style($color-accent);
       margin-top: 10px;
@@ -63,7 +59,6 @@
     }
   }
 
-  // Mensagem de erro
   .error-message {
     color: red;
     font-size: 0.9rem;

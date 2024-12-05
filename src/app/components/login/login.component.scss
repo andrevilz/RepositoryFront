@@ -1,16 +1,13 @@
-// Importa o arquivo de estilos compartilhados
 @use '../../../styles' as *;
 
-// Container da tela de login
 .container {
-  @include center-flex;  // Centraliza o conteúdo
+  @include center-flex;
   background-color: $color-background;
-  height: 100vh; // Full height
+  height: 100vh;
   padding: 20px;
   font-family: $font-family-default;
 }
 
-// Formulário de login
 .form {
   background-color: $color-secondary;
   border-radius: $border-radius-default;
@@ -24,7 +21,7 @@
   align-items: center;
   justify-content: center;
 
-  // Títulos
+  
   h1 {
     color: $color-primary;
     margin-bottom: 30px;
@@ -58,7 +55,7 @@
     }
   }
 
-  // Campos de entrada (inputs)
+
   input {
     width: 100%;
     padding: 12px;
@@ -76,14 +73,12 @@
     }
   }
 
-  // Botão de login
   button {
     @include button-style($color-accent);
     margin-top: 20px;
     width: 100%;
   }
 
-  // Aviso de erro
   .error-message {
     color: red;
     font-size: 0.9rem;
@@ -91,7 +86,6 @@
   }
 }
 
-// Estilo para as abas de "Login" e "Cadastro"
 .tab-content {
   width: 100%;
   display: none;

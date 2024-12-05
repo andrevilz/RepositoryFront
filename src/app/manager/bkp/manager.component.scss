@@ -3,7 +3,7 @@
 .tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Espaço entre as abas e o conteúdo */
+    margin-bottom: 20px; 
   
     .tab-button {
       background-color: $color-background;
@@ -13,7 +13,7 @@
       font-size: 1rem;
       cursor: pointer;
       border-radius: $border-radius-default;
-      margin: 0 10px; /* Espaço entre os botões */
+      margin: 0 10px;
       transition: background-color 0.3s ease, color 0.3s ease;
   
       &.active {
@@ -29,7 +29,7 @@
     }
   }
   
-  // Estilo geral do conteúdo
+
   .container {
     @include center-flex;
     background-color: $color-background;
@@ -39,7 +39,7 @@
     flex-direction: column;
   }
   
-  // Estilo do cabeçalho (h1)
+
   h1 {
     color: $color-primary;
     font-size: 2.5rem;
@@ -47,7 +47,7 @@
     margin-bottom: 30px;
   }
   
-  // Estilo dos filtros
+
   .filters {
     display: flex;
     flex-wrap: wrap;
@@ -92,7 +92,7 @@
     }
   }
   
-  // Estilo da tabela
+
   .table-container {
     max-width: 100%;
     overflow-x: auto;
@@ -139,14 +139,14 @@
     }
   }
   
-  // Caso não haja dados
+
   .no-data {
     color: $color-primary;
     font-size: 1.2rem;
     margin-top: 20px;
   }
   
-  // Mensagem de erro
+
   .error-message {
     color: red;
     font-size: 1rem;

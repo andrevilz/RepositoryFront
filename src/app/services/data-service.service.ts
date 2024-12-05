@@ -11,27 +11,22 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  // Adiciona um novo relatório
   addReport(reportData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/add`, reportData);
   }
 
-  // Obtém dados semanais
   getWeeklyData(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/weekly`);
   }
 
-  // Obtém todos os relatórios
   getAllReports(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/reports/all`);
   }
 
-  // Filtra relatórios por nome de usuário
   getReportsByUser(userName: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/reports/user?userName=${userName}`);
   }
 
-  // Filtra relatórios por intervalo de datas
   getReportsByDateRange(startDate: string, endDate: string): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/reports/dateRange?startDate=${startDate}&endDate=${endDate}`
